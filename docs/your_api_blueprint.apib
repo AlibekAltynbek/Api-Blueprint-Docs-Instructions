@@ -1,0 +1,80 @@
+FORMAT: 1A
+HOST: https://your-api.com
+
+# Your API
+
+Your API allows you to interact with various resources.
+
+# Group Resources
+
+## Store [/store]
+
+### Retrieve Store [GET]
+
++ Response 200 (application/json)
+
+    + Headers
+
+            X-RateLimit-Limit: 1000
+
+    + Body
+
+            {
+                "store_id": 123,
+                "name": "Example Store",
+                "description": "An example store",
+                "owner": "John Doe",
+                "address": "123 Main St, City, Country",
+                "contact": "example@store.com",
+                "status": "open"
+            }
+
+## Products [/products]
+
+### List Products [GET]
+
++ Response 200 (application/json)
+
+    + Body
+
+            [
+                {
+                    "product_id": 1,
+                    "name": "Product A",
+                    "description": "Description of Product A",
+                    "price": 10.99,
+                    "category": "Category A"
+                },
+                {
+                    "product_id": 2,
+                    "name": "Product B",
+                    "description": "Description of Product B",
+                    "price": 20.99,
+                    "category": "Category B"
+                }
+            ]
+
+### Create Product [POST]
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "name": "New Product",
+                "description": "Description of New Product",
+                "price": 15.99,
+                "category": "Category C"
+            }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "product_id": 3,
+                "name": "New Product",
+                "description": "Description of New Product",
+                "price": 15.99,
+                "category": "Category C"
+            }
